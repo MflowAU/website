@@ -1,0 +1,14 @@
+{{- $nav := .Site.Data.nav }}
+<header class = 'nav_header'>
+  <div class="nav_toggle"></div>
+  <a href = '/' class = 'flex_center nav_brand'>
+    <img src="/images/{{ .Site.Params.logo }}" alt="{{ .Site.Title }}" class="nav_logo">
+  </a>
+  <nav class = 'nav'>
+    {{ $page_link := .RelPermalink }}
+    {{ range $nav.links }}
+      {{ $home := '/' }}
+      <a class = 'nav_link{{ with .submenu }} parent{{ end }}' href = '{{ with .type }}{{ . }}{{ end }}{{ with .link }}{{ . }}{{ else }}/{{ anchorize .item }}/{{ end }}'>{{ .item }} </a>
+    {{ end }}
+  </nav>
+</header>

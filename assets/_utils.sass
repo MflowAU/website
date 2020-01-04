@@ -1,0 +1,148 @@
+.col 
+  max-width: 50rem
+  margin: 0 auto
+  padding: 0
+
+.justify 
+  &_center 
+    justify-items: center
+  &_end 
+    justify-items: end
+
+@for $i from 1 through 4 
+  $size: $i * 0.8rem
+  .mb-#{$i} 
+    margin-bottom: $size
+  .mt-#{$i} 
+    margin-top: $size
+  .pt-#{$i} 
+    padding-top: $size
+  .pb-#{$i} 
+    padding-bottom: $size
+  .img-#{$i * 25}
+    width: $i * 25% !important
+  
+.p0
+  padding: 0 0 0.625rem
+
+.mr-0 
+  margin-right: 0.33rem
+
+.mr-1
+  margin-right: 1rem
+
+.relative 
+  position: relative
+
+.wrap 
+  width: 100%
+  @extend %wrap
+  &, &_min 
+    padding-left: 1.5625rem
+    padding-right: 1.5625rem
+  & &, & &_min, &_min &_min 
+    padding-left: 0
+    padding-right: 0
+  &_min 
+    max-width: 56rem
+  & &, & &_min 
+    padding: 0
+
+.center 
+  text-align: center
+  h2, h3, h4, h5, p
+    @extend %wrap
+.vcenter
+  display: grid
+  align-items: center
+.fcenter
+  display: flex
+  flex-flow: column
+  justify-content: center
+  align-items: center
+.flex 
+  &, &_center, &_right, &_column 
+    display: flex
+  &_center 
+    align-items: center
+  &_right 
+    justify-content: flex-end
+  &_column 
+    flex-direction: column
+    justify-content: space-between
+    > div 
+      order: 10
+
+.block 
+  display: block
+
+.max 
+  max-width: 12.5rem
+
+.middle 
+  display: grid
+  justify-content: center
+
+.last 
+  order: 10
+
+// new
+
+.divider
+  height: 0.175rem;
+  width: 100%
+  background-color: var(--theme)
+  &.small
+    width: 60%
+    max-width: 8rem
+    height: 0.125rem
+
+
+%grid
+  display: grid !important
+  grid-template-columns: 1fr
+  @extend %space
+
+
+[class*='grid'] 
+  @extend %grid
+  grid-gap: $column-gap
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr))
+
+
+@media screen  and (min-width: 48.0625rem)
+  [class*='grid'] 
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr))
+  
+  .grid-
+    // flip grid auto borrowed
+    grid-template-columns: 3fr 1fr
+  
+  .grid-inverse
+    grid-template-columns: 1fr 3fr
+  
+  .grid-trio
+    grid-template-columns: 1fr 1fr 1fr
+    align-items: center
+  
+  .grid-duo 
+    grid-template-columns: 3rem 1fr
+    grid-gap: $column-gap
+    align-items: center
+
+@media screen and (min-width: 64rem) 
+  @for $i from 2 through 4 
+    .grid-#{$i} 
+      grid-template-columns: repeat($i, 1fr)
+
+.grid-1 
+  grid-template-columns: 1fr
+
+.column
+  // only use class to stick button at bottom
+  &, p:last-of-type
+    display: flex;
+    flex-direction: column;
+  p:last-of-type
+    flex: 1
+    justify-content: flex-end;

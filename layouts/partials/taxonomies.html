@@ -1,0 +1,14 @@
+{{ range $taxonomyname, $taxonomy := .Site.Taxonomies }}
+<div class = 'grid-3 wrap'>
+  {{ range $key, $value := $taxonomy }}
+  <section>
+    <h3 class = 'taxonomy_title'>{{ replace $key "-" " " }}</h3>
+    <ul class = 'taxonomy_body'>
+    {{ range (first 5 $value.Pages) }}
+      <li class = 'taxonomy_item'><a href="{{ .Permalink}}"> {{ .LinkTitle }} </a> </li>
+    {{ end }}
+    </ul>
+  </section>
+  {{ end }}
+</div>
+{{ end }}

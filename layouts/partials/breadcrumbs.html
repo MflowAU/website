@@ -1,0 +1,11 @@
+{{ $.Scratch.Add "path" .Site.BaseURL }}
+<div id = 'breadcrumbs'>
+  <a href = '/'>Home</a>
+  {{ range $index, $element := split .RelPermalink "/" }}
+    {{ $.Scratch.Add "path" $element }}
+      {{ if ne $element "" }}
+      / <a href='{{ $.Scratch.Get "path" }}'>{{ humanize (replace . "-" " ") }}</a>
+      {{ $.Scratch.Add "path" "/" }}
+      {{ end }}
+  {{ end }}
+</div>

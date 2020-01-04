@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang = '{{ .Site.Language }}'>
+  {{- partial "head.html" . }}
+  <body>
+    {{- partial "header.html" . }}
+    <main id = 'content' class = 'main nav_after'>
+      {{- block "main" . }}{{ end }}
+    </main>
+    {{- partial "footer.html" . }}
+    {{- if (ne hugo.Environment "development") -}}
+    {{- partial "analytics.html" . }}
+    {{- end -}}
+  </body>
+</html>

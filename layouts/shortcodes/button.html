@@ -1,0 +1,4 @@
+{{- $text := .Get 0 }}
+{{- $link := .Get 1 }}
+{{- $type := .Get 2 }}
+<a href="{{ with $type }}{{ . }}{{ end }}{{ $link }}" class="button">{{ $text }}</a>

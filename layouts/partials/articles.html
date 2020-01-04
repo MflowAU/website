@@ -1,0 +1,22 @@
+{{- $articles  := where (where .Site.Pages "Section" "blog") "Kind" "page" }}
+
+{{- $xarticles := .Site.Data.medium }} 
+
+{{- range $articles }}
+  {{- .Scratch.SetInMap "blogs" "title" .Title }}
+  {{- .Scratch.SetInMap "blogs" "link" .Permalink }}
+  {{- .Scratch.SetInMap "blogs" "date" .Date }}
+  {{- .Scratch.SetInMap "blogs" "summary" .Summary }}
+  {{- .Scratch.SetInMap "blogs" "image" .Params.image }}
+  {{- $stuff := .Scratch.Get "blogs" }}
+  {{- $xarticles = $xarticles | append $stuff }}
+{{- end }}
+<div class="articles_wrap">
+  <div class="articles">
+    {{- range $xarticles  }}
+    <a class="article_slide" href="{{- .link }}" {{- with .external }} target ="_blank" rel="noopener"{{- end }}>
+      {{ partial "excerpt.html" . }}
+    </a>
+    {{- end }}
+  </div>
+</div>

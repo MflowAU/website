@@ -1,0 +1,18 @@
+<head>
+	<meta charset = 'UTF-8'>
+	<meta name = 'viewport' content = 'width=device-width, initial-scale=1.0, minimum-scale=1.0'>
+	{{ if .Page.Params.Description }}
+		<meta name = 'description' content = '{{ .Page.Params.Description }}'>
+	{{ end }}
+	{{ if .Page.Params.NoIndex }}
+		<meta name="robots" content="noindex,nofollow,noarchive">
+	{{ end }}
+	<title>{{ with .Title }}{{ . }} | {{ end }}{{ .Site.Title }}</title>
+	<link rel = 'canonical' href = '{{ .Permalink }}'>
+
+	<link rel="shortcut icon" href="/logos/online-gebeuren-icon.svg" sizes="any" type="image/svg+xml">
+
+	{{- $options := (dict "targetPath" "css/styles.css" "outputStyle" "compressed" "enableSourceMap" "true") -}}
+  {{- $styles := resources.Get "main.sass" | resources.ExecuteAsTemplate "main.sass" . | resources.ToCSS $options | resources.Fingerprint "sha512" }}
+  <link rel = 'stylesheet' href = '{{ $styles.RelPermalink }}' integrity = '{{ $styles.Data.Integrity }}'>
+</head>

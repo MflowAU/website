@@ -1,0 +1,4 @@
+{{- $type := .Get 0 }}
+<div class='wrap{{- with $type }} {{ . }}{{ end }}'>
+ {{ with .Inner  }} {{ . | markdownify }} {{ end }}
+</div>

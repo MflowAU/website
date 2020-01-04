@@ -1,0 +1,8 @@
+links:
+  - item: "Home"
+    link: "/"
+  - item: "Articles"
+    link: "/blog/"
+  - item: "Contact Us"
+    link: "melchisalins@gmail.com"
+    type: "mailto:"

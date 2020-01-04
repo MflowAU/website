@@ -1,0 +1,7 @@
+<div class = "social">
+  {{- range .Site.Params.social }}
+  <a href="{{ .url }}" target="_blank" rel="noopener" class="social_item">
+    <img src='{{ absURL (printf "icons/%s-icon.svg" .name) }}' alt="icon" class="social_icon">
+  </a>
+  {{- end }}
+</div>

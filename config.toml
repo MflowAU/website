@@ -1,0 +1,24 @@
+baseURL = "http://mflowau.github.io"
+DefaultContentLanguage = "en"
+languageCode = "en"
+title = "MFlow"
+disableKinds = ["taxonomy", "taxonomyTerm"]
+paginate = 9
+
+[blackfriday]
+hrefTargetBlank = true
+
+[params]
+  Description = "lipsum"
+  logo = "logo.png"
+  # [[params.social]]
+  # name = "facebook"
+  # url = "#"
+
+  # [[params.social]]
+  # name = "twitter"
+  # url = "#"
+
+  [[params.social]]
+  name = "github"
+  url = "https://github.com/mflowau"

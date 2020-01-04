@@ -1,0 +1,8 @@
+{{- $footer := .Site.Data.footer }}
+{{- $logo := $footer.brandLogo }}
+<footer>
+  <nav class = 'footer_items center'>
+    <p>&copy; {{ now.Format "2006" }} {{ .Site.Title }}</p>
+  </nav>
+</footer>
+<script src="/js/index.js"></script>
