@@ -5,7 +5,6 @@ title = ""
 
 {{< block "center" >}}
 
-Insert some text here! (_index.md)
 
 {{< /block  >}}
 
