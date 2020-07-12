@@ -1,3 +1,9 @@
+- title: Rate limiting in Golang HTTP client
+  link: https://medium.com/mflow/rate-limiting-in-golang-http-client-a22fba15861a
+  summary: Leveraging Token Buckets in Golang to write an HTTP client that honours rate-limits to avoid HTTP 429 response or even worse - get banned.
+  image: gopher1.png # featured image
+  date: 2020-07-12
+  external: true
 # - title: Securing you CaaS
 #   link: https://medium.com/momenton/securing-your-caas-using-googles-gvisor-d6e0cd0ae230
 #   summary: Linux container technology has existed for over 10 years ...

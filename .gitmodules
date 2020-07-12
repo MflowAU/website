@@ -1,4 +1,4 @@
 [submodule "public"]
 	path = public
-	url = git@github.com:mflowau/mflowau.github.io.git
+	url = git@github.com:MflowAU/mflowau.github.io.git
 	branch = master
